@@ -1,2 +1,2 @@
 # kostka_hadamcik
-ehm moje kvalitni hra v JS
+ehm moje kvalitni kostickova hra v JS
