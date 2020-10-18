@@ -1,43 +1,53 @@
-console.log("funguje to");
-const kostka = document.getElementById ("cube");
-const statistika = document.getElementById ("result");
-const tlacitko = document.getElementById ("game");
+const kostka = document.getElementById("cube");
+const statistika = document.getElementById("result");
+const tlacitko = document.getElementById("game");
 let hod = 1;
 let hody = [];
+let timer = false;
 
-tlacitko.addEventListener("click", function(){
-    hod = Math.ceil(Math.random()*6);
-    hody.push(hod);
-    console.log(hody);
+function animace() {
+    hod = Math.ceil(Math.random() * 6);
     kostka.src = "img/kostka" + hod + ".png";
-    vypisStatistiky();
+}
+
+tlacitko.addEventListener("click", function () {
+    if (!timer) {
+        timer = setInterval(animace, 100);
+        tlacitko.innerText = "Stop";
+    } else {
+        clearInterval(timer);
+        timer = false;
+        tlacitko.innerText = "Hrej";
+        hody.push(hod);
+        vypisStatistiky();
+    }
 })
 
-function suma(){
+function suma() {
     let sum = 0;
-    for (let i = 0; i < hody.length; i++){
+    for (let i = 0; i < hody.length; i++) {
         sum += hody[i];
     }
     return sum;
 }
 
-function max(){
+function max() {
     let maximum = 1;
-    hody.forEach(function(value, index) {
+    hody.forEach(function (value, index) {
         if (value > maximum) maximum = value;
     })
     return maximum;
 }
 
-function min(){
+function min() {
     let minimum = 6;
-    hody.forEach(function(value, index) {
+    hody.forEach(function (value, index) {
         if (value < minimum) minimum = value;
     })
     return minimum;
 }
 
-function vypisStatistiky(){
+function vypisStatistiky() {
     statistika.innerHTML = `<p>Poslední hod: ${hod}</p>`
     statistika.innerHTML += `<p>Počet hodů: ${hody.length}</p>`
     statistika.innerHTML += `<p>Součet: ${suma()}</p>`
