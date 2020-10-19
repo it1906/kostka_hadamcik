@@ -1,6 +1,7 @@
 const kostka = document.getElementById("cube");
 const statistika = document.getElementById("result");
 const tlacitko = document.getElementById("game");
+
 let hod = 1;
 let hody = [];
 let timer = false;
@@ -12,6 +13,7 @@ function animace() {
 
 tlacitko.addEventListener("click", function () {
     if (!timer) {
+        zvuk2();
         timer = setInterval(animace, 100);
         tlacitko.innerText = "Stop";
     } else {
@@ -55,3 +57,21 @@ function vypisStatistiky() {
     statistika.innerHTML += `<p>Maximum: ${max()}</p>`
     statistika.innerHTML += `<p>Minimum: ${min()}</p>`
 }
+function zvuk1 (){
+
+    let zvuk=document.getElementById("haha");
+    zvuk.play();
+    window.setTimeout(function(){
+        zvuk.pause();
+    }
+    ,7000
+)}
+function zvuk2 (){
+
+    let zvuk=document.getElementById("shake");
+    zvuk.play();
+    window.setTimeout(function(){
+        zvuk.pause();
+    }
+    ,7000
+)}
