@@ -1,8 +1,6 @@
 const kostka = document.getElementById("cube");
 const statistika = document.getElementById("result");
 const tlacitko = document.getElementById("game");
-let zapati = document.querySelector("footer");
-let fuutr = document.getElementById("futr");
 
 let hod = 1;
 let hody = [];
@@ -95,7 +93,3 @@ function zvuk3 (){
     }
     ,1500
 )}
-
-zapati.addEventListener("mouseenter", function(){
-    fuutr.innerText = "Povedlo se vám hodit kostkou, teď se hazardu nezbavíte, neutíkejte a hoďte si znovu. "
-})
