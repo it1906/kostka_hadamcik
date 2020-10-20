@@ -23,6 +23,12 @@ tlacitko.addEventListener("click", function () {
         timer = false;
         tlacitko.innerText = "Hrej";
         hody.push(hod);
+        if(hod == 6){
+            zvuk3();
+        }
+        if(hod == 1){
+            zvuk1();
+        }
         vypisStatistiky();
     }
 })
@@ -65,8 +71,9 @@ function zvuk1 (){
     zvuk.play();
     window.setTimeout(function(){
         zvuk.pause();
+        zvuk.currentTime = 0;
     }
-    ,7000
+    ,3000
 )}
 function zvuk2 (){
 
@@ -74,8 +81,19 @@ function zvuk2 (){
     zvuk.play();
     window.setTimeout(function(){
         zvuk.pause();
+        zvuk.currentTime = 0;
     }
-    ,7000
+    ,3000
+)}
+function zvuk3 (){
+
+    let zvuk=document.getElementById("six");
+    zvuk.play();
+    window.setTimeout(function(){
+        zvuk.pause();
+        zvuk.currentTime = 0;
+    }
+    ,1500
 )}
 
 zapati.addEventListener("mouseenter", function(){
